@@ -1,0 +1,156 @@
+@import "/src/colors.scss";
+@mixin triangle {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0px;
+  border: 0 solid transparent;
+  border-top-width: 50px;
+  border-bottom-width: 0px;
+}
+@mixin widthHeight50 {
+  height: 50px;
+  width: 50px;
+}
+* {
+  box-sizing: border-box;
+}
+.topbar {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 50px;
+  z-index: 3;
+}
+.topbar-wrapper {
+  display: flex;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.contacts {
+  display: inline-block;
+  position: relative;
+  background-color: $header-back;
+  @include widthHeight50;
+  & .phonebtn {
+    text-align: center;
+    padding-top: 9px;
+  }
+  & .phonecontent {
+    display: inline-block;
+    display: none;
+    position: absolute;
+    z-index: 3;
+    background-color: #c7ffcb;
+    width: 220px;
+    height: 30px;
+    top: 50px;
+    left: 50px;
+    & a {
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: 500;
+      color: $header-back;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0px;
+      left: -15px;
+      text-align: center;
+      border: 0 solid transparent;
+      border-top-width: 0px;
+      border-bottom-width: 30px;
+      border-right: 15px solid rgb(199, 255, 203);
+    }
+  }
+  &::after {
+    @include triangle();
+    top: 0;
+    left: 50px;
+    border-left: 25px solid $header-back;
+  }
+}
+.logoblock {
+  display: inline-block;
+  position: relative;
+  background-color: $header-back;
+  width: 70px;
+  text-align: center;
+  &::before {
+    @include triangle();
+    top: 0;
+    left: -25px;
+    border-right: 25px solid $header-back;
+    border-top-width: 0px;
+    border-bottom-width: 50px;
+  }
+  &::after {
+    @include triangle();
+    right: -25px;
+    border-left: 25px solid $header-back;
+    border-top-width: 0px;
+    border-bottom-width: 50px;
+  }
+}
+.accountblock {
+  display: inline-block;
+  position: relative;
+  background-color: $header-back;
+  @include widthHeight50;
+  text-align: center;
+  padding-top: 9px;
+  &::after {
+    @include triangle();
+    top: 0;
+    right: 50px;
+    border-right: 25px solid $header-back;
+  }
+  & img {
+    padding: 0;
+  }
+}
+.navbar {
+  position: relative;
+  // background-color: $header-back;
+  background-color: aquamarine;
+  color: $header-txt;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 50px;
+  & button {
+    @include widthHeight50;
+  }
+}
+@media (min-width: 1100px) {
+  .navbar {
+    // background-color: aqua;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: -50px;
+      border: 0 solid transparent;
+      border-top-width: 0;
+      border-bottom-width: 50px;
+      border-right: 50px solid $header-back;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      right: -50px;
+      border: 0 solid transparent;
+      border-top-width: 0;
+      border-bottom-width: 50px;
+      border-left: 50px solid $header-back;
+    }
+  }
+}

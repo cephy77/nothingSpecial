@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+.shop-wrapper {
+  width: 100%;
+}
+.filter {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  background-color: bisque;
+  flex-direction: row;
+  padding: 0 0.5em;
+  box-shadow: 0 0 5px;
+  margin-bottom: 1em;
+}
+
+.shop-gallery {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+}
+.itembox {
+  display: inline-block;
+  width: 320px;
+}
+.item-img {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  & img {
+    width: 150px;
+    height: 150px;
+  }
+}
