@@ -19,25 +19,30 @@
 .product-groupbox {
   display: flex;
   width: 100%;
+  padding: 0 10px;
   flex-direction: column;
   align-items: center;
+  align-self: center;
 }
 .product-name {
   font-family: "Play", sans-serif;
   font-weight: 700;
   font-size: 36px;
   max-width: 155px;
-  margin-bottom: 10px;
+  max-height: 100px;
+  margin-bottom: 1em;
   color: $item-name;
 }
 .product-specs {
   font-size: 18px;
+  padding: 0 10px;
   color: $item-text;
+  margin-bottom: 1em;
 }
 .product-buy {
   display: flex;
   height: 40px;
-  width: 100%;
+  width: 90%;
   color: $item-price;
 }
 .product-price {
@@ -106,5 +111,6 @@
   .product-img,
   .product-groupbox {
     width: 50%;
+    padding: 0;
   }
 }

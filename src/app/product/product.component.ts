@@ -36,8 +36,7 @@ export class ProductComponent implements OnInit {
       'https://raw.githubusercontent.com/cephy77/webProject/main/data.json'
     ).then((response) => response.json());
   }
-  buybtn(event?: MouseEvent) {
-    let evtTarget = event ? (event.target as HTMLElement).className : '';
-    evtTarget === 'product-cart' ? this.Cart.addToCart(this.product) : '';
+  buybtn(event) {
+    this.Cart.addToCart(event);
   }
 }
