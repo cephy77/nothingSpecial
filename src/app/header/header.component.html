@@ -1,0 +1,49 @@
+<header class="header">
+    <div class="topbar">
+        <div class="topbar-wrapper">
+            <div class="contacts">
+                <div class="phonebtn" (click)="phoneShow()">
+                    <img src="/assets/phone.png" alt="">
+                </div>
+                <div *ngIf="phonebool" class="phonecontent"><a href="tel:+380952177378">+380(95)420-69-42</a></div>
+                <div class="phonecontent2"><a href="tel:+380952177378">+380(95)420-69-42</a></div>
+            </div>
+            <div class="logoblock">
+                <a routerLink="/"><img src="/assets/nucleus.png" alt=""></a>
+            </div>
+            <div class="accountblock">
+                <img src="/assets/account.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="navbar">
+        <div class="menu">
+            <div class="menu-btn" (click)="menuShow()">
+                <img [src]="menubool ? 'assets/menu-close.png' : 'assets/menu.png'" alt="">
+            </div>
+            <div *ngIf="menubool" class="menu-nav">
+                <nav>
+                    <ul>
+                        <li routerLink="/">Home</li>
+                        <li routerLink="/shop" routerLinkActive="active">Shop</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="nav-wide">
+            <nav>
+                <ul>
+                    <li routerLink="/">Home</li>
+                    <li routerLink="/shop" routerLinkActive="active">Shop</li>
+                </ul>
+            </nav>
+        </div>
+        <div class="cart" (click)="cartShow()">
+            <img [src]="cartbool ? 'assets/sold.png': 'assets/cart.png'" alt="">
+            <div [style.display]="cartbool ? 'inline-block':'none'" class="cart-modal">
+                <h2>CART</h2>
+                <app-cart *ngIf="cartbool"></app-cart>
+            </div>
+        </div>
+    </div>
+</header>

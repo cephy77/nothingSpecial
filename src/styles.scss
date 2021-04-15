@@ -1,8 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap");
-body {
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap");
+@import "/src/colors.scss";
+* {
   font-family: "Jura", sans-serif;
+}
+body {
+  min-width: 320px;
   font-size: 16px;
   font-weight: 400;
   box-sizing: border-box;
   margin: 0;
+  background-color: $body;
+  & a {
+    text-decoration: none;
+  }
 }
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

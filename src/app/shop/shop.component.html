@@ -1,15 +1,31 @@
 <div class="shop-wrapper">
     <div class="filter">
-
+        Filters
     </div>
     <div class="shop-gallery">
-        <div class="itembox">
+        <div *ngFor="let product of showcase" class="itembox">
             <div class="item-img">
-                <img src="/assets/calculator-2017-10-10.png" alt="">
+                <a [routerLink]="'/shop/' + product.id"><img [src]="product.img" [alt]="product.title"></a>
             </div>
             <div class="item-groupbox">
-                <div class="item-info"></div>
-                <div class="item-buy"></div>
+                <div class="item-info">
+                    <a [routerLink]="'/shop/' + product.id">
+                        <div class="item-name">{{product.title}}</div>
+                        <div class="item-specs">
+                            {{product.shortDescription}}
+                        </div>
+                    </a>
+                </div>
+                <div class="item-buy">
+                    <div class="item-price">
+                        <div class="item-price-old">{{product.oldPrice}}</div>
+                        <div class="item-price-main">{{product.price}}$</div>
+                    </div>
+                    <div [ngClass]="product.availability ? 'item-cart': 'item-cart-off'" (click)="buybtn(product)">
+                        <img class="buy-icon" [src]="product.availability ? 'assets/cart.png': 'assets/sold.png'"
+                            alt="Buy">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,0 +1,20 @@
+<div *ngIf="product" class="product-wrapper">
+    <div class="product-img">
+        <img [src]="product.img" [alt]="product.title">
+    </div>
+    <div class="product-groupbox">
+        <div class="product-name">{{product.title}}</div>
+        <div class="product-specs">{{product.description}}</div>
+        <div class="product-buy">
+            <div class="product-price">
+                <div class="product-price-old">{{product.oldPrice}}</div>
+                <div class="product-price-main">{{product.price}}</div>
+            </div>
+            <div [ngClass]="product.availability ? 'product-cart': 'product-cart-off'" id={{product.id}}
+                (click)="buybtn($event)">
+                <img class="buy-icon" [src]="product.availability ? 'assets/cart.png': 'assets/sold.png'" alt="Buy">
+            </div>
+
+        </div>
+    </div>
+</div>

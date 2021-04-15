@@ -1,2 +1,17 @@
+//body
+$body: rgb(218, 218, 218);
+//header
 $header-back: #000;
 $header-txt: #fff;
+//filter
+$filter-back: rgb(100, 100, 100);
+//item
+$item-name: rgb(17, 125, 187);
+$item-text: rgb(53, 53, 53);
+$item-price: rgb(79, 97, 84);
+$item-oldprice: rgba(63, 2, 2, 0.466);
+//footer
+$footer-back: $header-back;
+$footer-txt: $header-txt;
+//test
+$test: orange;

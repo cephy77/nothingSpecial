@@ -1,0 +1,22 @@
+<div class="cart-wrapper">
+    <div *ngIf="check" class="cart-check">
+        <div class="cart-content">
+            <div *ngFor="let item of bufer" class="cart-item">
+                <div class="cart-img">
+                    <img [src]="item.img" [alt]="item.title">
+                </div>
+                <div class="cart-name">{{item.title}}</div>
+                <div class="cart-price">{{item.price}}$</div>
+            </div>
+
+        </div>
+        <div class="cart-btns">
+            <div class="cart-clear" (click)="cleanCart()">Clear all</div>
+            <div class="cart-buy">Buy</div>
+        </div>
+    </div>
+    <div *ngIf="!check" class="cart-check">
+        Your Cart is empty!
+    </div>
+
+</div>
