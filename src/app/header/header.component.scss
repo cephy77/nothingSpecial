@@ -13,9 +13,6 @@
 * {
   box-sizing: border-box;
 }
-.active {
-  background-color: darken($test, 30%);
-}
 .topbar {
   position: relative;
   display: inline-block;
@@ -24,7 +21,8 @@
   z-index: 3;
 }
 .topbar-wrapper {
-  // background-image: url(/assets/source1.gif);
+  background-image: url(https://cdn.dribbble.com/users/1100256/screenshots/7124464/media/94a5e074f80ae9466705cf4c833c3432.gif);
+  background-size: 50%;
   display: flex;
   width: 100%;
   margin: 0 auto;
@@ -44,11 +42,13 @@
     display: inline-block;
     position: absolute;
     z-index: 3;
-    background-color: #c7ffcb;
-    width: 220px;
+    background-color: $test;
+    width: 230px;
     height: 30px;
+    line-height: 30px;
     top: 50px;
     left: 50px;
+    box-shadow: 0px 0px 10px;
     & a {
       text-decoration: none;
       font-size: 24px;
@@ -65,7 +65,7 @@
       border: 0 solid transparent;
       border-top-width: 0px;
       border-bottom-width: 30px;
-      border-right: 15px solid rgb(199, 255, 203);
+      border-right: 15px solid $test;
     }
   }
   .phonecontent2 {
@@ -154,7 +154,8 @@
   .menu-nav {
     position: absolute;
     z-index: 3;
-    width: 100px;
+    width: 130px;
+    animation: menuinit 0.4s;
     background-color: $test;
     ul {
       list-style: none;
@@ -165,33 +166,48 @@
         height: 50px;
         line-height: 50px;
         font-size: 20px;
-        margin: 5px 0;
+        margin: 5px auto;
+        width: 80px;
       }
+    }
+  }
+  @keyframes menuinit {
+    0% {
+      left: -130px;
+    }
+    100% {
+      left: 0px;
     }
   }
 }
 .nav-wide {
   display: none;
 }
+.right-side {
+  display: flex;
+  width: 50%;
+  padding-right: 5px;
+  justify-content: flex-end;
+}
 .cart {
   position: relative;
   display: inline-block;
   align-self: end;
-  background-color: $test;
   width: 50px;
   height: 50px;
-  transition: all 0.4s;
+  text-align: center;
+
   img {
-    max-width: 40px;
-    margin: 5px;
+    max-width: 32px;
+    padding-top: 9px;
   }
   .cart-modal {
     position: absolute;
-    // display: inline-block;
     top: 50px;
-    left: -270px;
+    left: -265px;
     width: 320px;
     height: 320px;
+    animation: init 0.2s linear;
     padding: 10px;
     z-index: 3;
     background-color: $filter-back;
@@ -201,6 +217,14 @@
       font-weight: 600;
       margin-bottom: 15px;
       border-bottom: 3px solid $header-txt;
+    }
+  }
+  @keyframes init {
+    0% {
+      height: 0px;
+    }
+    100% {
+      height: 320px;
     }
   }
 }
@@ -252,7 +276,7 @@
       }
       a {
         line-height: 50px;
-        color: $header-txt;
+        color: $body;
         text-decoration: none;
         font-size: 24px;
         font-weight: 500;
@@ -298,26 +322,83 @@
     display: inline-block;
     height: 50px;
     width: 50%;
+    overflow: hidden;
     ul {
       display: flex;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding-left: 25px;
       font-size: 24px;
       font-weight: 700;
       li {
-        background-color: $test;
-        margin-right: 1em;
+        position: relative;
+        color: $test;
         line-height: 50px;
         width: 120px;
         text-align: center;
+        outline: none;
+        cursor: default;
+        &:first-child {
+          &::before {
+            content: "";
+            position: absolute;
+            transform: rotate(45deg);
+            left: -5px;
+            top: -20px;
+            width: 3px;
+            height: 100px;
+            background-color: $body;
+          }
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          transform: rotate(45deg);
+          right: 0;
+          top: -20px;
+          width: 3px;
+          height: 100px;
+          background-color: $body;
+        }
       }
     }
   }
+  .right-side {
+    padding-right: 50px;
+  }
   .cart {
+    &::before {
+      content: "";
+      position: absolute;
+      transform: rotate(-45deg);
+      left: -20px;
+      top: -20px;
+      width: 3px;
+      height: 100px;
+      background-color: $body;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      transform: rotate(-45deg);
+      right: -30px;
+      top: -20px;
+      width: 3px;
+      height: 100px;
+      background-color: $body;
+    }
     .cart-modal {
-      left: -500px;
+      left: -450px;
       width: 550px;
+      height: 500px;
+      border-right: 3px solid $body;
+    }
+  }
+  @keyframes init {
+    0% {
+      height: 0px;
+    }
+    100% {
       height: 500px;
     }
   }

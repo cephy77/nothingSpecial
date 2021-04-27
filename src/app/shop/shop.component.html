@@ -21,7 +21,8 @@
                         <div class="item-price-old">{{product.oldPrice}}</div>
                         <div class="item-price-main">{{product.price}}$</div>
                     </div>
-                    <div [ngClass]="product.availability ? 'item-cart': 'item-cart-off'" (click)="buybtn(product)">
+                    <div [ngClass]="product.availability ? 'item-cart': 'item-cart-off'"
+                        (click)="product.availability ? buybtn(product) : ''">
                         <img class="buy-icon" [src]="product.availability ? 'assets/cart.png': 'assets/sold.png'"
                             alt="Buy">
                     </div>

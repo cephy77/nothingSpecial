@@ -7,12 +7,11 @@ import { ShoppingCartService } from '../shopping-cart.service';
 })
 export class CartComponent implements OnInit {
   check: boolean;
-  bufer: any;
-  constructor(private Cart: ShoppingCartService) {}
+  bufer = [];
+  constructor(public Cart: ShoppingCartService) {}
 
   ngOnInit(): void {
     this.bufer = this.Cart.getItems();
-    console.log(this.bufer);
     if (this.bufer) {
       this.bufer.length !== 0 ? (this.check = true) : (this.check = false);
     } else {
